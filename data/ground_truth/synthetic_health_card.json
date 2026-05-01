@@ -1,0 +1,19 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Priya Ramanathan"
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "BPH-7741-2298-04",
+    "policy_type": "health",
+    "insurer_name": "BluePath Health Plan",
+    "effective_date": "2026-01-01",
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "Plan: BluePath PPO Gold. Group #778201. PCP $25, specialist $50, urgent care $75, ER $300. OOP max individual $4500. Pharmacy BIN 610279 PCN BPHRX Group BPHHL. Customer service 1-800-555-2266."
+}

@@ -1,0 +1,29 @@
+[PAGE 1]
+HORIZON HOMEOWNERS — POLICY DECLARATIONS
+Insurer: Horizon Homeowners Insurance Group
+Policy Number: HO3-2025-441208
+Period: 06/15/2025 through 06/15/2026
+
+POLICYHOLDER
+  Name: Sarah Margaret O'Connor
+  DOB: 09/14/1978
+  Mailing Address: 1820 Maple Ridge Dr, Cedar Park, TX 78613
+  Email: smoconnor@example.com
+  Phone: (512) 555-0142
+
+DWELLING
+  Property Address: same as mailing
+  Year built: 2008  /  Square footage: 2,640
+
+COVERAGES
+  Coverage A — Dwelling                  Limit $480,000   Deductible $2,500   Premium $1,420
+  Coverage B — Other Structures          Limit $48,000                        Premium $0 (included)
+  Coverage C — Personal Property         Limit $240,000   Deductible $1,000   Premium $360
+  Coverage D — Loss of Use               Limit $96,000                        Premium $0 (included)
+  Coverage E — Personal Liability        Limit $300,000                       Premium $84
+  Coverage F — Medical Payments          Limit $5,000                         Premium $14
+
+ANNUAL PREMIUM TOTAL: $1,878.00
+
+Discounts applied: protective device (-5%), bundle with auto (-10%).
+Mortgagee: Cedar Park National Bank, Loan #770-22148.

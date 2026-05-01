@@ -1,0 +1,23 @@
+[PAGE 1]
+BLUEPATH HEALTH PLAN — Member ID Card (Front)
+
+Plan: BluePath PPO Gold
+Member: PRIYA RAMANATHAN
+Member ID: BPH-7741-2298-04
+Group #: 778201
+Effective: 01/01/2026
+
+[PAGE 2]
+BluePath Health Plan — Member ID Card (Back)
+
+Customer Service: 1-800-555-2266
+Provider Services: 1-800-555-2280
+Pharmacy BIN: 610279  PCN: BPHRX  Group: BPHHL
+
+Copays — In Network
+  PCP visit:        $25
+  Specialist visit: $50
+  Urgent care:      $75
+  ER visit:         $300
+
+Out-of-pocket maximum (individual): $4,500

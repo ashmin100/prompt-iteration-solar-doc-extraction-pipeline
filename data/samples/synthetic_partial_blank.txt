@@ -1,0 +1,23 @@
+[PAGE 1]
+PRAIRIE STATE INSURANCE — POLICY APPLICATION (Draft, page 1 of 4)
+
+Carrier: Prairie State Insurance Co.
+Policy Type: Auto
+
+APPLICANT INFORMATION
+  Full Name: ___________________________________
+  Date of Birth: ____ / ____ / ______
+  Address: ___________________________________
+           ___________________________________
+  Phone: __________________
+  Email: john.smith@example.com
+
+POLICY DETAILS
+  Requested Effective Date: 07/01/2026
+  Policy Number (assigned by underwriter): ____________
+
+VEHICLE
+  Year: 2019      Make: Subaru     Model: Outback     VIN: ____________
+
+NOTES
+  Applicant indicated need for liability minimums; further discussion required.

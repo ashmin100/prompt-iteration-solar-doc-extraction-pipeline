@@ -1,0 +1,27 @@
+{
+  "form_type": "claim_form",
+  "policy_holder": {
+    "full_name": "Marcus Holloway",
+    "phone": "(415) 555-0173",
+    "email": "mholloway@example.com"
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "AUTO-2025-014522",
+    "policy_type": "auto"
+  },
+  "claim": {
+    "claim_number": "CLM-2026-AUTO-08821",
+    "date_of_loss": "2026-04-18",
+    "loss_description": "Insured vehicle was rear-ended at a red light. Other party admitted fault. Visible damage: rear bumper, trunk lid, right tail light. Minor neck pain reported, no ER visit.",
+    "loss_location": {
+      "street": "Intersection of N. 1st St and Trimble Rd",
+      "city": "San Jose",
+      "state": "CA",
+      "zip_code": "95134"
+    },
+    "estimated_amount": "4820.00"
+  },
+  "raw_notes": "Time of loss ~18:42 PDT, reported 2026-04-19. Police report #SJPD-2026-77231. Deductible $500, net payable $4320 subject to adjuster review. Adjuster Maria Gomez ext. 4412."
+}

@@ -1,0 +1,26 @@
+[PAGE 1]
+SUMMIT COMMERCIAL LINES — POLICY DECLARATIONS
+
+Insurer: Summit Commercial Lines Insurance
+Policy: COMM-GL-2025-99201
+Policy Period: 03/01/2025 – 03/01/2026
+Total Annual Premium: $14,820.00
+
+NAMED INSURED
+  Lee & Park Architects, LLC
+  Mailing: 200 Market St, Suite 410, Philadelphia, PA 19103
+  Contact: contact@leeparkarch.example
+
+ADDITIONAL NAMED INSUREDS
+  1) Lee & Park Design Studio, Inc.    EIN: 27-3309821
+  2) Park Family Holdings, LP          EIN: 88-1102043
+
+PRINCIPAL CONTACTS
+  Managing Partner:   Hyun-Sook Lee     DOB: 03/15/1972    hslee@example.com
+  Senior Partner:     Jin-Ho Park       DOB: 11/22/1968    jhpark@example.com
+
+COVERAGES
+  Commercial General Liability  Each Occurrence Limit $1,000,000  Aggregate $2,000,000   Premium $7,400
+  Property                       Limit $850,000   Deductible $5,000                       Premium $4,200
+  Cyber Liability               Limit $250,000   Retention $10,000                        Premium $1,820
+  Hired/Non-Owned Auto          Limit $1,000,000                                          Premium $1,400

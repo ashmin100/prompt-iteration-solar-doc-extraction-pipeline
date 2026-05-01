@@ -1,0 +1,35 @@
+{
+  "form_type": "policy_application",
+  "policy_holder": {
+    "full_name": "Daniel Hyun-Woo Lee",
+    "date_of_birth": "1989-02-28",
+    "phone": "415-555-0188",
+    "email": "dhwlee@example.com",
+    "address": {
+      "street": "506 Bayshore Ave, Apt 12C",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip_code": "94133"
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [
+    {"full_name": "Eun-Jung Lee", "date_of_birth": "1990-11-03"},
+    {"full_name": "Min-Jun Lee", "date_of_birth": "2018-06-12"},
+    {"full_name": "So-Yeon Lee", "date_of_birth": "2021-04-22"},
+    {"full_name": "Hye-Won Park", "date_of_birth": "1962-07-19"}
+  ],
+  "policy": {
+    "policy_number": "APP-LIFE-2025-009381",
+    "policy_type": "life",
+    "insurer_name": "Evergreen Life Insurance Co.",
+    "effective_date": "2025-09-01",
+    "expiration_date": null,
+    "total_premium": "1225.00",
+    "coverages": [
+      {"coverage_type": "term_life", "limit": "750000", "premium": "1225.00"}
+    ]
+  },
+  "claim": null,
+  "raw_notes": "20-year level term. Beneficiary shares: Eun-Jung 70%, Min-Jun 15%, So-Yeon 15%; contingent Hye-Won Park 100%. Non-smoker declared, paramedical exam required, no replacement of existing coverage."
+}

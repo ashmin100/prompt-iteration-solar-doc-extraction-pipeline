@@ -1,0 +1,28 @@
+[PAGE 1]
+NORTHSTAR MUTUAL — AUTO CLAIM REPORT
+
+Claim Number: CLM-2026-AUTO-08821
+Policy Number: AUTO-2025-014522
+Date of Loss: 2026-04-18
+Time of Loss: approximately 18:42 PDT
+Date Reported: 2026-04-19
+
+INSURED
+  Name: Marcus Holloway
+  Phone: (415) 555-0173
+  Email: mholloway@example.com
+
+LOSS LOCATION
+  Intersection of N. 1st St and Trimble Rd, San Jose, CA 95134
+
+DESCRIPTION OF LOSS
+  Insured vehicle was rear-ended at a red light. Other party admitted fault to
+  responding officer. Police report #SJPD-2026-77231 filed at scene.
+  Visible damage: rear bumper, trunk lid, right tail light. Minor neck pain
+  reported, no ER visit. Vehicle drove away from scene.
+
+ESTIMATED REPAIR COST: $4,820.00
+Deductible applied: $500
+Net claim payable to insured: $4,320.00 (subject to adjuster review)
+
+ADJUSTER ASSIGNED: Maria Gomez, ext. 4412

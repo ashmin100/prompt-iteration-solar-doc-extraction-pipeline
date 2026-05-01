@@ -1,0 +1,36 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Lee & Park Architects, LLC",
+    "email": "contact@leeparkarch.example",
+    "address": {
+      "street": "200 Market St, Suite 410",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip_code": "19103"
+    }
+  },
+  "additional_insureds": [
+    {"full_name": "Lee & Park Design Studio, Inc."},
+    {"full_name": "Park Family Holdings, LP"},
+    {"full_name": "Hyun-Sook Lee", "date_of_birth": "1972-03-15", "email": "hslee@example.com"},
+    {"full_name": "Jin-Ho Park", "date_of_birth": "1968-11-22", "email": "jhpark@example.com"}
+  ],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "COMM-GL-2025-99201",
+    "policy_type": "commercial",
+    "insurer_name": "Summit Commercial Lines Insurance",
+    "effective_date": "2025-03-01",
+    "expiration_date": "2026-03-01",
+    "total_premium": "14820.00",
+    "coverages": [
+      {"coverage_type": "commercial_general_liability", "limit": "1000000", "premium": "7400"},
+      {"coverage_type": "property", "limit": "850000", "deductible": "5000", "premium": "4200"},
+      {"coverage_type": "cyber_liability", "limit": "250000", "deductible": "10000", "premium": "1820"},
+      {"coverage_type": "hired_non_owned_auto", "limit": "1000000", "premium": "1400"}
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Additional named insureds include EINs: Lee & Park Design Studio 27-3309821; Park Family Holdings 88-1102043. CGL aggregate limit $2,000,000. Cyber retention $10,000."
+}

@@ -76,33 +76,52 @@ what the eval harness actually showed. See `docs/prompt_iteration_log.md`.
 | v2 | Inject full Pydantic JSON schema + ISO-8601/money rules + `response_format: json_object` | v1 drifts on field names and date formats. | implemented |
 | v3 | v2 + 1 worked few-shot example + edge-case rules (multiple persons, partial blanks) | v2 still hallucinates when the form is sparse. | implemented |
 
-## Eval harness (planned)
+## Eval harness
 
-Metrics compared across `v1 / v2 / v3`:
+Run all three prompt versions against the dataset in one shot:
 
-- **Schema validity rate** — does the output parse + validate?
-- **Field-level F1** — exact match for IDs/dates/amounts, fuzzy for free-form.
-- **Hallucination rate** — fraction of fields filled that aren't in source.
-- **Latency / tokens** — p50 / p95 per prompt version, per backend.
+```bash
+python -m src.cli evaluate --versions v1,v2,v3 --out results/eval_v1_v2_v3.md
+```
 
-Output: `results/eval_v1_v2_v3.md` (auto-generated comparison table).
+The harness loads every `(samples/<id>.{txt,pdf}, ground_truth/<id>.json)`
+pair under `data/`, runs each version, and writes a markdown report with:
+
+- **Schema validity rate** — fraction of predictions that parse + Pydantic-validate.
+- **Field accuracy & F1** — per-field comparison with type-aware rules: exact match for IDs / categoricals, normalized comparison for dates and money, fuzzy ratio (≥ 0.85) for names / addresses, greedy key-based matching for list fields like `coverages` and `beneficiaries`.
+- **Hallucination rate** — fields the model filled that ground truth left null.
+- **Omission rate** — fields ground truth populated that the model returned null.
+- **Latency p50 / p95** — per prompt version, per backend.
+- **Per-document failure breakdown** — which docs failed schema, parse, or had wrong / hallucinated fields.
+
+Reported separately for the **real** tier (public-domain PDFs) and the
+**synthetic** dev tier so synthetic numbers don't inflate the headline.
 
 ## Repository layout
 
 ```
 solar-doc-extraction-pipeline/
-├── src/                  # pipeline + prompts + (eval — next)
+├── src/
+│   ├── schema.py          # Pydantic InsuranceForm
+│   ├── parser.py          # PDF → text
+│   ├── llm_client.py      # multi-backend OpenAI-compatible client
+│   ├── extractor.py       # parse → prompt → JSON → validate
+│   ├── prompts/           # v1 / v2 / v3
+│   ├── eval/              # metrics + harness + report
+│   └── cli.py             # `extract` and `evaluate` subcommands
 ├── data/
-│   ├── samples/          # PDFs go here; one synthetic .txt included
-│   └── ground_truth/     # one JSON per sample (manually written)
-├── results/              # eval reports (auto-generated)
-├── docs/                 # prompt iteration logs, design notes
-├── notebooks/            # demo notebooks
+│   ├── samples/           # 7 synthetic .txt + your real PDFs
+│   └── ground_truth/      # one JSON per sample
+├── results/               # eval_v1_v2_v3.md (auto-generated)
+├── docs/                  # prompt iteration log
+├── notebooks/             # demo
 └── tests/
 ```
 
 ## Status
 
-Day 1 of a one-week build. Schema, multi-backend client, three prompt
-versions, and one synthetic ground-truth sample are in. Next: the eval
-harness, plus 4–6 additional public-domain samples and matching ground truth.
+Day 2 of a one-week build. End-to-end pipeline + three prompt versions +
+eval harness with type-aware metrics + 7 synthetic dev-set samples. Next:
+4–5 real public-domain PDFs (CMS-1500, IRS 1095-A, ACORD 25, etc.) for the
+primary eval tier, then a real run on Ollama / Groq to fill the headline
+numbers in `results/eval_v1_v2_v3.md`.

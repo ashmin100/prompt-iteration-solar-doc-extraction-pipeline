@@ -1,0 +1,23 @@
+{
+  "form_type": "policy_application",
+  "policy_holder": {
+    "full_name": null,
+    "date_of_birth": null,
+    "phone": null,
+    "email": "john.smith@example.com",
+    "address": null
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "auto",
+    "insurer_name": "Prairie State Insurance Co.",
+    "effective_date": "2026-07-01",
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "Draft application page 1 of 4. Vehicle: 2019 Subaru Outback (VIN blank). Applicant indicated need for liability minimums; further discussion required."
+}

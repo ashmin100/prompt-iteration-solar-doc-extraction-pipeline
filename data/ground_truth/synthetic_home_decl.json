@@ -1,0 +1,35 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Sarah Margaret O'Connor",
+    "date_of_birth": "1978-09-14",
+    "phone": "(512) 555-0142",
+    "email": "smoconnor@example.com",
+    "address": {
+      "street": "1820 Maple Ridge Dr",
+      "city": "Cedar Park",
+      "state": "TX",
+      "zip_code": "78613"
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "HO3-2025-441208",
+    "policy_type": "home",
+    "insurer_name": "Horizon Homeowners Insurance Group",
+    "effective_date": "2025-06-15",
+    "expiration_date": "2026-06-15",
+    "total_premium": "1878.00",
+    "coverages": [
+      {"coverage_type": "dwelling", "limit": "480000", "deductible": "2500", "premium": "1420"},
+      {"coverage_type": "other_structures", "limit": "48000", "premium": "0"},
+      {"coverage_type": "personal_property", "limit": "240000", "deductible": "1000", "premium": "360"},
+      {"coverage_type": "loss_of_use", "limit": "96000", "premium": "0"},
+      {"coverage_type": "personal_liability", "limit": "300000", "premium": "84"},
+      {"coverage_type": "medical_payments", "limit": "5000", "premium": "14"}
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Year built 2008, 2640 sqft. Discounts: protective device -5%, bundle with auto -10%. Mortgagee: Cedar Park National Bank, Loan #770-22148."
+}

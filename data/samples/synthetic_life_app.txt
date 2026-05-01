@@ -1,0 +1,29 @@
+[PAGE 1]
+EVERGREEN LIFE INSURANCE — TERM LIFE APPLICATION
+
+Application No.: APP-LIFE-2025-009381
+Carrier: Evergreen Life Insurance Co.
+Term: 20-year level term
+Face Amount: $750,000
+Annual Premium: $1,225.00 (preferred non-tobacco)
+Requested Effective Date: 09/01/2025
+
+PROPOSED INSURED
+  Full Legal Name: Daniel Hyun-Woo Lee
+  Date of Birth: 02/28/1989
+  Address: 506 Bayshore Ave, Apt 12C, San Francisco, CA 94133
+  Phone: 415-555-0188
+  Email: dhwlee@example.com
+
+BENEFICIARIES (primary)
+  1) Eun-Jung Lee   Relationship: Spouse   DOB: 11/03/1990   Share: 70%
+  2) Min-Jun Lee    Relationship: Son      DOB: 06/12/2018   Share: 15%
+  3) So-Yeon Lee    Relationship: Daughter DOB: 04/22/2021   Share: 15%
+
+CONTINGENT BENEFICIARY
+  Hye-Won Park   Relationship: Mother   DOB: 07/19/1962   Share: 100%
+
+[PAGE 2]
+The proposed insured agrees to a paramedical exam.
+Smoker status: Non-smoker (declared).
+Replacement of existing coverage: No.
