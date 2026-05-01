@@ -8,9 +8,9 @@
     "address": {
       "street": "742 Ridgeview Lane",
       "city": "Riverton",
-      "state": null,
+      "state": "CA",
       "zip_code": "94016",
-      "country": null
+      "country": "US"
     }
   },
   "additional_insureds": [
