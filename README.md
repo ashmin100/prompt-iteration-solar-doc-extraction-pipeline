@@ -97,6 +97,13 @@ pair under `data/`, runs each version, and writes a markdown report with:
 Reported separately for the **real** tier (public-domain PDFs) and the
 **synthetic** dev tier so synthetic numbers don't inflate the headline.
 
+Current Tier 1 real-PDF set uses four public documents saved under
+`data/samples/`: IRS 1095-A, CMS-1500, an ACORD 25 certificate example, and
+the NAIC life insurance buyer's guide. The planned California DOI auto
+insurance sample was excluded from this pass because the official
+`insurance.ca.gov` PDF endpoint repeatedly timed out during local download;
+it can be added later without changing the evaluation flow.
+
 ## Repository layout
 
 ```
