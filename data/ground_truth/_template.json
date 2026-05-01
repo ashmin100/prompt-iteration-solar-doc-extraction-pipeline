@@ -1,0 +1,29 @@
+{
+  "form_type": "policy_application | declaration_page | claim_form | unknown",
+  "policy_holder": {
+    "full_name": null,
+    "date_of_birth": null,
+    "phone": null,
+    "email": null,
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip_code": null,
+      "country": null
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": null,
+    "insurer_name": null,
+    "effective_date": null,
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": null
+}

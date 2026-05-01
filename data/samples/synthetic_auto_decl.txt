@@ -1,0 +1,29 @@
+[PAGE 1]
+NORTHSTAR MUTUAL INSURANCE — AUTO POLICY DECLARATIONS
+
+Policy Number: AUTO-2025-014522
+Insurer: Northstar Mutual Insurance Company
+Policy Period: 02/01/2025 to 02/01/2026
+
+Named Insured:
+  Alex Morgan
+  DOB: 07/19/1988
+  Address: 742 Ridgeview Lane, Riverton, CA 94016
+  Phone: (555) 014-8926
+  Email: alex.morgan@example.com
+
+Vehicle: 2021 Hyundai Ioniq 5  VIN: 5YJ3E1EA7MF000246
+
+Coverages
+  Bodily Injury Liability        Limit $250,000 / $500,000   Premium $612.00
+  Property Damage Liability      Limit $100,000              Premium $214.00
+  Collision                      Deductible $500             Premium $278.00
+  Comprehensive                  Deductible $250             Premium $134.00
+  Uninsured Motorist             Limit $100,000 / $300,000   Premium $96.00
+
+Total Annual Premium: $1,334.00
+
+Additional Insured: Taylor Morgan (spouse), DOB: 02/11/1990
+Beneficiary: N/A (auto policy)
+
+Notes: Multi-policy discount applied. Includes 24/7 roadside assistance rider.
