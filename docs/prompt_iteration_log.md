@@ -69,3 +69,9 @@ the model on these decisions without a large prompt-length cost.
   and on multi-person forms.
 - Latency will be roughly v1 < v2 < v3 because prompt length grows; the
   question is whether the quality lift justifies the latency.
+
+---
+
+## Tier 1 ground-truthing notes (2026-05-01)
+
+Labeled 4 public PDFs (IRS 1095-A, CMS-1500, ACORD 25, NAIC life insurance buyer's guide) using model-assisted labeling with qwen3:14b. v3 produced the first draft, then each JSON was corrected to the `InsuranceForm` ground-truth shape. Most common corrections: hallucinated or schema-drifted keys on blank forms; mis-categorized 1095-A as unknown instead of health; non-enum policy type emitted for ACORD 25; NAIC buyer's guide treated as an application despite containing only educational content.

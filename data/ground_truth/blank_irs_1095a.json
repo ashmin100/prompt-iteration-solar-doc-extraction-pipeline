@@ -1,0 +1,29 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": null,
+    "date_of_birth": null,
+    "phone": null,
+    "email": null,
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip_code": null,
+      "country": null
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "health",
+    "insurer_name": null,
+    "effective_date": null,
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "Blank IRS Form 1095-A Health Insurance Marketplace Statement for tax year 2025. OMB No. 1545-2232. Includes Marketplace identifier, Marketplace-assigned policy number, policy issuer, recipient/spouse, covered individuals, monthly enrollment premiums, SLCSP premiums, and advance payment of premium tax credit fields. The public IRS copy is marked not for filing and contains no completed recipient or policy values."
+}

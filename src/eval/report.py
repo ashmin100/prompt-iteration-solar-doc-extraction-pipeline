@@ -53,6 +53,7 @@ def render(report: HarnessReport) -> str:
     lines.append("")
     tier_str = ", ".join(f"{k}: {v}" for k, v in sorted(report.tier_counts.items()))
     lines.append(f"**Dataset:** {report.dataset_size} documents ({tier_str}).")
+    lines.append(f"**Parser mode:** `{report.parser_mode}`.")
     lines.append("")
 
     # ---- Overall ---------------------------------------------------------

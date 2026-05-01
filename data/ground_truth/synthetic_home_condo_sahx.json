@@ -1,0 +1,46 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Ian Cooper",
+    "date_of_birth": "1993-11-08",
+    "phone": "(589) 555-4554",
+    "email": "ian.cooper@example.com",
+    "address": {
+      "street": "78161 Calderon River Suite 931",
+      "city": "Lake Jeremyport",
+      "state": "CO",
+      "zip_code": "31013"
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "HO6-2026-542417",
+    "policy_type": "home",
+    "insurer_name": "Greystone Home Insurance",
+    "effective_date": "2025-06-06",
+    "expiration_date": "2026-06-06",
+    "total_premium": "667.10",
+    "coverages": [
+      {
+        "coverage_type": "dwelling",
+        "limit": "103000",
+        "deductible": "1000",
+        "premium": "360.50"
+      },
+      {
+        "coverage_type": "personal_property",
+        "limit": "53000",
+        "deductible": "500",
+        "premium": "222.60"
+      },
+      {
+        "coverage_type": "personal_liability",
+        "limit": "100000",
+        "premium": "84.00"
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Condominium HO-6 form. HOA master policy on file. Loss assessment coverage up to $50,000 included."
+}

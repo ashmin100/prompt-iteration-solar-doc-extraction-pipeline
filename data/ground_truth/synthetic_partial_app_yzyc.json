@@ -1,0 +1,17 @@
+{
+  "form_type": "policy_application",
+  "policy_holder": null,
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "auto",
+    "insurer_name": "Heartland Mutual Insurance",
+    "effective_date": "2026-05-06",
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "Draft application page 1 of 4. All applicant fields blank. Vehicle year/make/model/VIN blank. Applicant requested follow-up to discuss liability minimums."
+}

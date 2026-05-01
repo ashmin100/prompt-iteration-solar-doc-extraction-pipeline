@@ -1,0 +1,26 @@
+[PAGE 1]
+SUMMIT RIDGE CASUALTY — AUTO POLICY DECLARATIONS
+
+Policy Number: AUTO-2026-216739
+Insurer: Summit Ridge Casualty
+Policy Period: 06/09/2025 to 06/09/2026
+
+Named Insured:
+  Danielle Taylor
+  DOB: 05/08/1960
+  Address: 600 Jeffery Parkways, New Jamesside, MT 29394
+  Phone: (958) 555-8935
+  Email: danielle.taylor@example.com
+
+Additional Drivers:
+  - Donald Booth, DOB 07/19/1995
+  - Jay Ramirez, DOB 09/28/1966
+
+Coverages
+  Bodily Injury Liability             Limit $300,000 / $500,000                                Premium $556.00
+  Property Damage Liability           Limit $100,000                                           Premium $227.00
+  Collision                                                          Deductible $500           Premium $255.00
+  Comprehensive                                                      Deductible $250           Premium $125.00
+  Medical Payments                    Limit $5,000                                             Premium $54.00
+
+Total Annual Premium: $1,217.00

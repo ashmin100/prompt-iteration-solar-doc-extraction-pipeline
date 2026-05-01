@@ -49,6 +49,11 @@ def main(argv: list[str] | None = None) -> int:
     evaluate.add_argument(
         "--out", type=Path, default=Path("results/eval_v1_v2_v3.md")
     )
+    evaluate.add_argument(
+        "--parser-mode",
+        default="text",
+        help="Parser backend (default: text). Future: vlm-qwen, vlm-mistral, etc.",
+    )
 
     args = parser.parse_args(argv)
 
@@ -81,6 +86,7 @@ def main(argv: list[str] | None = None) -> int:
             versions=versions,
             samples_dir=args.samples_dir,
             gt_dir=args.gt_dir,
+            parser_mode=args.parser_mode,
         )
         out_path = write_report(report, args.out)
         print(f"wrote {out_path}", file=sys.stderr)

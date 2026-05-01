@@ -20,12 +20,13 @@ fields, and downstream systems will not tolerate schema drift.
 | Layer | File | Notes |
 | --- | --- | --- |
 | Multi-backend LLM client | `src/llm_client.py` | OpenAI-compatible. Defaults to **local Ollama**; Groq / HF Inference / any OpenAI-compatible endpoint via env vars. |
-| PDF parser | `src/parser.py` | `pdfplumber` page-by-page extraction with `[PAGE n]` markers. |
+| Document parser | `src/parser.py` | `parse_document(path, mode='text' \| 'vlm-qwen')`. `text` mode uses `pdfplumber`; `vlm-qwen` renders PDF pages with PyMuPDF and transcribes them with local Ollama `qwen2.5vl:7b`. |
 | Schema | `src/schema.py` | Pydantic v2 model `InsuranceForm` (ACORD-aligned). Money/date validators, `extra="ignore"` to tolerate over-eager LLM keys. |
 | Prompts | `src/prompts/` | `v1` (zero-shot), `v2` (schema-injected), `v3` (schema + few-shot + edge rules). |
 | Pipeline | `src/extractor.py` | parse → prompt → JSON parse → Pydantic validate, with diagnostics for the eval harness. |
-| CLI | `src/cli.py` | `python -m src.cli extract --pdf ... --version v2` |
-| Eval harness | `src/eval/` | (next milestone) field-level F1, schema-validity rate, hallucination rate, latency. |
+| Synthetic generator | `data/synth_generator.py` | `Faker`-driven generator producing varied insurance forms plus typewriter-style PDFs via `reportlab` for parser ablations. |
+| Eval harness | `src/eval/` | Type-aware metrics (categorical / id / date / money / fuzzy / phone / email), greedy list matching, schema validity rate, hallucination / omission rates, latency p50/p95. Three-tier reporting (`synthetic` / `blank` / `filled`). |
+| CLI | `src/cli.py` | `python -m src.cli extract --pdf ... --version v2` and `python -m src.cli evaluate --versions v1,v2,v3` |
 
 ## Quickstart
 
@@ -84,6 +85,24 @@ Run all three prompt versions against the dataset in one shot:
 python -m src.cli evaluate --versions v1,v2,v3 --out results/eval_v1_v2_v3.md
 ```
 
+For the PDF parser ablation, run the same prompt version against the same
+PDF-backed dataset with two parser modes:
+
+```bash
+python -m src.cli evaluate --versions v3 \
+  --parser-mode text \
+  --out results/eval_text_qwen3.md
+
+python -m src.cli evaluate --versions v3 \
+  --parser-mode vlm-qwen \
+  --out results/eval_vlm_qwen.md
+```
+
+This compares `pdfplumber + v3` against `qwen2.5vl:7b page transcription + v3`
+on the same synthetic and blank-form stems. The `.txt` files remain as
+human-readable references; when a matching PDF exists, the harness evaluates
+the PDF.
+
 The harness loads every `(samples/<id>.{txt,pdf}, ground_truth/<id>.json)`
 pair under `data/`, runs each version, and writes a markdown report with:
 
@@ -125,10 +144,32 @@ solar-doc-extraction-pipeline/
 └── tests/
 ```
 
+## Dataset & tier strategy
+
+Public-domain *filled* insurance forms are vanishingly rare because real
+filled forms contain PII. Rather than scrape borderline material, this repo
+uses a **three-tier dataset** that turns the data-availability problem into
+a deliberate evaluation design:
+
+| Tier | What's in it | What it measures |
+| --- | --- | --- |
+| **synthetic** (`synthetic_*`) | 15 hand-written + Faker-generated text samples covering 8 form types | Primary accuracy / F1; this is where v1 → v2 → v3 lift is measured |
+| **blank** (`blank_*`) | 4 real public-domain blank forms (CMS-1500, IRS 1095-A, ACORD 25, NAIC life app) | Hallucination resistance — does the model invent values into placeholder lines? |
+| **filled** (`filled_*`) | _deferred_ | Real-layout robustness; planned via VLM parsing path (see `docs/future_work.md` §1) |
+
+Each tier is reported separately so synthetic numbers don't inflate the
+headline. To regenerate the synthetic tier:
+
+```bash
+pip install faker
+python data/synth_generator.py --n 8 --seed 42
+```
+
 ## Status
 
 Day 2 of a one-week build. End-to-end pipeline + three prompt versions +
-eval harness with type-aware metrics + 7 synthetic dev-set samples. Next:
-4–5 real public-domain PDFs (CMS-1500, IRS 1095-A, ACORD 25, etc.) for the
-primary eval tier, then a real run on Ollama / Groq to fill the headline
-numbers in `results/eval_v1_v2_v3.md`.
+type-aware eval harness + three-tier dataset (15 synthetic + 4 blank,
+filled deferred). The `vlm-qwen` parser path is implemented for local
+Qwen2.5-VL via Ollama; evaluation is pending/ongoing. Next: generate
+`results/eval_text_qwen3.md` and `results/eval_vlm_qwen.md` to quantify the
+pdfplumber baseline vs VLM trade-off.

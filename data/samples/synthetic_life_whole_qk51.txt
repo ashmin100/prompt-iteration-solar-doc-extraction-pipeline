@@ -1,0 +1,29 @@
+[PAGE 1]
+MARIGOLD WHOLE LIFE — WHOLE LIFE APPLICATION
+
+Application No.: APP-WL-2026-539898
+Carrier: Marigold Whole Life
+Product: Whole Life with Paid-Up Additions Rider
+Face Amount: $250,000.00
+Annual Premium: $2,125.00
+Requested Effective Date: 06/27/2026
+
+PROPOSED INSURED
+  Full Legal Name: Jacob Clark
+  Date of Birth: 03/02/1986
+  Address: 76483 Cameron Trail, East Lydiamouth, MO 35594
+  Phone: (267) 555-3456
+  Email: jacob.clark@example.com
+
+BENEFICIARIES (primary)
+  1) Timothy Wong                                Relationship: Spouse   DOB: 10/12/1974   Share: 100%
+
+RIDERS ELECTED
+  - Waiver of Premium Rider
+  - Accelerated Death Benefit Rider
+  - Paid-Up Additions Rider (annual contribution $2,500)
+
+[PAGE 2]
+Smoker status: Non-smoker (declared).
+Replacement of existing coverage: No.
+Paramedical exam: required.

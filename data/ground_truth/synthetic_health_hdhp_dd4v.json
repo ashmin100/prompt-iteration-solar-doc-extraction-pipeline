@@ -1,0 +1,19 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Emily Rios"
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "BLU-3615-7924-43",
+    "policy_type": "health",
+    "insurer_name": "BlueRidge Health Cooperative",
+    "effective_date": "2026-01-01",
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "HDHP Bronze HSA-eligible. Group 391369. Individual deductible $3,000, OOP max $6,000. After deductible 80/20 coinsurance."
+}

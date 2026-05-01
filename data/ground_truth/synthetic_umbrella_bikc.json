@@ -1,0 +1,36 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Julie King",
+    "address": {
+      "street": "845 Kelly Estate",
+      "city": "Smithview",
+      "state": "NY",
+      "zip_code": "23917"
+    }
+  },
+  "additional_insureds": [
+    {
+      "full_name": "Terri Frazier"
+    }
+  ],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "UMB-2024-838797",
+    "policy_type": "other",
+    "insurer_name": "Apex Personal Umbrella",
+    "effective_date": "2026-04-30",
+    "expiration_date": "2027-04-30",
+    "total_premium": "285.00",
+    "coverages": [
+      {
+        "coverage_type": "umbrella_liability",
+        "limit": "1000000",
+        "deductible": "250",
+        "premium": "285.00"
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Personal umbrella. Aggregate $1,000,000.00. SIR $250. Underlying auto 250/500 BI, 100 PD; home $300,000 personal liability required."
+}

@@ -1,0 +1,17 @@
+{
+  "form_type": "unknown",
+  "policy_holder": null,
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "life",
+    "insurer_name": "National Association of Insurance Commissioners",
+    "effective_date": null,
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": null,
+  "raw_notes": "NAIC Life Insurance Buyer's Guide, copyright 2018. This is an educational consumer guide rather than a completed policy application. It explains life insurance, coverage amount considerations, existing-policy review, and policy selection concepts, but contains no applicant, beneficiary, policy number, premium, effective date, or coverage limit values."
+}

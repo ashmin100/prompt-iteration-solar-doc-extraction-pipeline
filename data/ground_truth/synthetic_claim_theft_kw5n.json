@@ -1,0 +1,27 @@
+{
+  "form_type": "claim_form",
+  "policy_holder": {
+    "full_name": "Thomas Ellis",
+    "phone": "(471) 555-2287",
+    "email": "thomas.ellis@example.com"
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "AUTO-2026-230889",
+    "policy_type": "auto"
+  },
+  "claim": {
+    "claim_number": "CLM-2024-AUTO-70217",
+    "date_of_loss": "2026-04-30",
+    "loss_description": "Vehicle reported missing; no broken glass at scene; relay theft suspected. Police report filed.",
+    "loss_location": {
+      "street": "969 Cox Dam Suite 101",
+      "city": "Lake Ernest",
+      "state": "TX",
+      "zip_code": "55834"
+    },
+    "estimated_amount": "27403.00"
+  },
+  "raw_notes": "Insurer: Cascadia Mutual Insurance. Deductible $1,000."
+}

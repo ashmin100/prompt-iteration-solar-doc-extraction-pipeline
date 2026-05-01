@@ -1,0 +1,35 @@
+{
+  "form_type": "claim_form",
+  "policy_holder": {
+    "full_name": null,
+    "date_of_birth": null,
+    "phone": null,
+    "email": null,
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip_code": null,
+      "country": null
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "health",
+    "insurer_name": null,
+    "effective_date": null,
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": []
+  },
+  "claim": {
+    "claim_number": null,
+    "date_of_loss": null,
+    "loss_description": null,
+    "loss_location": null,
+    "estimated_amount": null
+  },
+  "raw_notes": "Blank CMS-1500 health insurance claim form, approved OMB-0938-1197, Form 1500 (02-12). The public sample is not completed; patient, insured, diagnosis, procedure, charge, provider, and authorization fields are placeholders and are therefore null in ground truth."
+}

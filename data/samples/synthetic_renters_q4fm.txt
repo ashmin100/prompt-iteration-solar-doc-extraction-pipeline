@@ -1,0 +1,19 @@
+[PAGE 1]
+PINECREST RENTERS INSURANCE — RENTERS (HO-4) DECLARATIONS
+
+Insurer: Pinecrest Renters Insurance
+Policy Number: HO4-2024-205907
+Period: 04/30/2026 - 04/30/2027
+
+POLICYHOLDER
+  Name: Mark Lynch
+  Mailing Address: 2880 Burns Creek, Natashaport, IA 08093
+  Phone: (446) 555-9295
+  Email: mark.lynch@example.com
+
+COVERAGES
+  Coverage C — Personal Property         Limit $30,000        Deductible $250        Premium $240.00
+  Coverage E — Personal Liability        Limit $300,000                                Premium $64.00
+  Coverage F — Medical Payments          Limit $1,000                                       Premium included
+
+ANNUAL PREMIUM TOTAL: $304.00

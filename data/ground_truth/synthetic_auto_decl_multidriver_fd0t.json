@@ -1,0 +1,63 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Danielle Taylor",
+    "date_of_birth": "1960-05-08",
+    "phone": "(958) 555-8935",
+    "email": "danielle.taylor@example.com",
+    "address": {
+      "street": "600 Jeffery Parkways",
+      "city": "New Jamesside",
+      "state": "MT",
+      "zip_code": "29394"
+    }
+  },
+  "additional_insureds": [
+    {
+      "full_name": "Donald Booth",
+      "date_of_birth": "1995-07-19"
+    },
+    {
+      "full_name": "Jay Ramirez",
+      "date_of_birth": "1966-09-28"
+    }
+  ],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "AUTO-2026-216739",
+    "policy_type": "auto",
+    "insurer_name": "Summit Ridge Casualty",
+    "effective_date": "2025-06-09",
+    "expiration_date": "2026-06-09",
+    "total_premium": "1217.00",
+    "coverages": [
+      {
+        "coverage_type": "bodily_injury_liability",
+        "limit": "300000",
+        "premium": "556.00"
+      },
+      {
+        "coverage_type": "property_damage_liability",
+        "limit": "100000",
+        "premium": "227.00"
+      },
+      {
+        "coverage_type": "collision",
+        "deductible": "500",
+        "premium": "255.00"
+      },
+      {
+        "coverage_type": "comprehensive",
+        "deductible": "250",
+        "premium": "125.00"
+      },
+      {
+        "coverage_type": "medical_payments",
+        "limit": "5000",
+        "premium": "54.00"
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Multi-driver policy with two additional drivers."
+}

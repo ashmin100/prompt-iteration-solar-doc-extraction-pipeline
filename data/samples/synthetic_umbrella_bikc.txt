@@ -1,0 +1,21 @@
+[PAGE 1]
+APEX PERSONAL UMBRELLA — PERSONAL UMBRELLA LIABILITY DECLARATIONS
+
+Policy Number: UMB-2024-838797
+Insurer: Apex Personal Umbrella
+Policy Period: 04/30/2026 to 04/30/2027
+
+NAMED INSURED
+  Julie King
+  Spouse: Terri Frazier
+  Address: 845 Kelly Estate, Smithview, NY 23917
+
+COVERAGE
+  Each occurrence limit: $1,000,000.00
+  Annual aggregate:      $1,000,000.00
+  Self-insured retention: $250
+  Annual premium:        $285.00
+
+UNDERLYING POLICIES (must be maintained)
+  - Auto: $250,000 / $500,000 BI, $100,000 PD
+  - Home: $300,000 personal liability

@@ -223,26 +223,28 @@ def _tally_list(spec: dict, gt_list: Optional[list], pr_list: Optional[list]) ->
     unmatched PR items contribute 1 hallucinated per scalar field.
     """
     t = FieldTally()
-    gt_list = gt_list or []
-    pr_list = pr_list or []
+    gt_list = gt_list if isinstance(gt_list, list) else []
+    pr_list = pr_list if isinstance(pr_list, list) else ([] if _is_empty(pr_list) else [pr_list])
     key = spec["key"]
     scalars: dict = spec["scalar_paths"]
 
     used_pr = set()
     for g in gt_list:
-        gk = (g or {}).get(key)
+        g = g if isinstance(g, dict) else {}
+        gk = g.get(key)
         match_idx = None
         if gk is not None:
             for i, p in enumerate(pr_list):
                 if i in used_pr:
                     continue
+                p = p if isinstance(p, dict) else {}
                 if compare_scalar("fuzzy" if isinstance(gk, str) else "categorical",
-                                   gk, (p or {}).get(key)):
+                                   gk, p.get(key)):
                     match_idx = i
                     break
         if match_idx is not None:
             used_pr.add(match_idx)
-            p = pr_list[match_idx] or {}
+            p = pr_list[match_idx] if isinstance(pr_list[match_idx], dict) else {}
             for sub_path, comparator in scalars.items():
                 t.add(_tally_scalar(comparator, g.get(sub_path), p.get(sub_path)))
         else:
@@ -257,8 +259,9 @@ def _tally_list(spec: dict, gt_list: Optional[list], pr_list: Optional[list]) ->
     for i, p in enumerate(pr_list):
         if i in used_pr:
             continue
+        p = p if isinstance(p, dict) else {key: p}
         for sub_path in scalars:
-            if not _is_empty((p or {}).get(sub_path)):
+            if not _is_empty(p.get(sub_path)):
                 t.hallucinated += 1
             else:
                 t.both_empty += 1

@@ -9,7 +9,7 @@ from typing import Iterable, Optional
 
 from src.extractor import Extractor
 from src.llm_client import LLMClient
-from src.parser import pdf_to_text
+from src.parser import parse_document
 from src.eval.metrics import (
     AggregateMetrics,
     DocumentMetrics,
@@ -19,42 +19,92 @@ from src.eval.metrics import (
 
 
 # --------------------------------------------------------------------------- #
+TIER_PREFIXES: dict[str, str] = {
+    "synthetic_": "synthetic",
+    "blank_":     "blank",
+    "filled_":    "filled",
+}
+DEFAULT_TIER = "uncategorized"
+
+
+def _classify_tier(stem: str) -> str:
+    for prefix, tier in TIER_PREFIXES.items():
+        if stem.startswith(prefix):
+            return tier
+    return DEFAULT_TIER
+
+
+# --------------------------------------------------------------------------- #
 @dataclass
 class DatasetItem:
     document_id: str
     text: str
     ground_truth: dict
-    tier: str  # "real" or "synthetic"
+    tier: str  # "synthetic" | "blank" | "filled" | "uncategorized"
 
 
 def discover_dataset(
     samples_dir: Path = Path("data/samples"),
     gt_dir: Path = Path("data/ground_truth"),
+    parser_mode: str = "text",
 ) -> list[DatasetItem]:
-    """Find every (sample, ground_truth) pair on disk.
+    """Find every (sample, ground_truth) pair on disk, deduped by stem.
 
-    Tier:
-      - "synthetic" if sample basename starts with `synthetic_`
-      - "real"      otherwise (real public-domain PDFs)
+    Tiers (prefix-based, see TIER_PREFIXES):
+      - synthetic_*   → "synthetic"  (programmatically generated, primary accuracy tier)
+      - blank_*       → "blank"      (real public-domain blank forms; hallucination-resistance test)
+      - filled_*      → "filled"     (filled real-layout forms; deferred — see future_work.md)
+      - other         → "uncategorized"
+
+    Stem dedup: if both `<stem>.txt` and `<stem>.pdf` exist, pick one based
+    on `parser_mode`:
+      - text mode    → prefer .pdf (realistic input through pdfplumber);
+                       fall back to .txt only if no PDF exists.
+      - vlm-* modes  → require .pdf; skip stems with only .txt.
+
+    The .txt files are kept in the repo as human-readable references for
+    each synthetic sample; the .pdf is what the harness actually evaluates.
     """
-    items: list[DatasetItem] = []
-    for sample_path in sorted(samples_dir.iterdir()):
+    is_vlm = parser_mode.startswith("vlm-")
+
+    # Group by stem
+    stem_to_paths: dict[str, list[Path]] = {}
+    for sample_path in samples_dir.iterdir():
         if sample_path.is_dir() or sample_path.name.startswith(("_", ".")):
             continue
         if sample_path.suffix.lower() not in {".txt", ".pdf"}:
             continue
         stem = sample_path.stem
-        gt_path = gt_dir / f"{stem}.json"
-        if not gt_path.exists() or stem.startswith("_"):
+        if stem.startswith("_"):
             continue
-        text = (
-            pdf_to_text(sample_path)
-            if sample_path.suffix.lower() == ".pdf"
-            else sample_path.read_text(encoding="utf-8")
+        if not (gt_dir / f"{stem}.json").exists():
+            continue
+        stem_to_paths.setdefault(stem, []).append(sample_path)
+
+    items: list[DatasetItem] = []
+    for stem in sorted(stem_to_paths):
+        paths = stem_to_paths[stem]
+        pdf = next((p for p in paths if p.suffix.lower() == ".pdf"), None)
+        txt = next((p for p in paths if p.suffix.lower() == ".txt"), None)
+
+        if is_vlm:
+            chosen = pdf  # VLM strictly needs an image
+        else:
+            chosen = pdf or txt  # text mode: PDF first (realistic), else .txt
+
+        if chosen is None:
+            continue  # nothing usable for this mode
+
+        parsed = parse_document(chosen, mode=parser_mode)
+        gt = json.loads((gt_dir / f"{stem}.json").read_text(encoding="utf-8"))
+        items.append(
+            DatasetItem(
+                document_id=stem,
+                text=parsed.text,
+                ground_truth=gt,
+                tier=_classify_tier(stem),
+            )
         )
-        gt = json.loads(gt_path.read_text(encoding="utf-8"))
-        tier = "synthetic" if stem.startswith("synthetic_") else "real"
-        items.append(DatasetItem(document_id=stem, text=text, ground_truth=gt, tier=tier))
     return items
 
 
@@ -73,6 +123,7 @@ class HarnessReport:
     runs: list[HarnessRun]
     dataset_size: int
     tier_counts: dict[str, int]
+    parser_mode: str = "text"
 
 
 # --------------------------------------------------------------------------- #
@@ -81,8 +132,9 @@ def run_evaluation(
     llm: Optional[LLMClient] = None,
     samples_dir: Path = Path("data/samples"),
     gt_dir: Path = Path("data/ground_truth"),
+    parser_mode: str = "text",
 ) -> HarnessReport:
-    dataset = discover_dataset(samples_dir, gt_dir)
+    dataset = discover_dataset(samples_dir, gt_dir, parser_mode=parser_mode)
     if not dataset:
         raise RuntimeError(
             f"No (sample, ground_truth) pairs found under {samples_dir} / {gt_dir}"
@@ -142,4 +194,5 @@ def run_evaluation(
         runs=runs,
         dataset_size=len(dataset),
         tier_counts=tier_counts,
+        parser_mode=parser_mode,
     )

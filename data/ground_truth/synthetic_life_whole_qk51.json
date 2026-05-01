@@ -1,0 +1,39 @@
+{
+  "form_type": "policy_application",
+  "policy_holder": {
+    "full_name": "Jacob Clark",
+    "date_of_birth": "1986-03-02",
+    "phone": "(267) 555-3456",
+    "email": "jacob.clark@example.com",
+    "address": {
+      "street": "76483 Cameron Trail",
+      "city": "East Lydiamouth",
+      "state": "MO",
+      "zip_code": "35594"
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [
+    {
+      "full_name": "Timothy Wong",
+      "date_of_birth": "1974-10-12"
+    }
+  ],
+  "policy": {
+    "policy_number": "APP-WL-2026-539898",
+    "policy_type": "life",
+    "insurer_name": "Marigold Whole Life",
+    "effective_date": "2026-06-27",
+    "expiration_date": null,
+    "total_premium": "2125.00",
+    "coverages": [
+      {
+        "coverage_type": "whole_life",
+        "limit": "250000",
+        "premium": "2125.00"
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "Whole life with riders: Waiver of Premium, Accelerated Death Benefit, Paid-Up Additions ($2,500/yr). Non-smoker. Paramedical exam required."
+}

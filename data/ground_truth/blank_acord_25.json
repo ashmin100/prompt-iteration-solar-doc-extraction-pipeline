@@ -1,0 +1,50 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": null,
+    "date_of_birth": null,
+    "phone": null,
+    "email": null,
+    "address": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip_code": null,
+      "country": null
+    }
+  },
+  "additional_insureds": [
+    {
+      "full_name": "NYS Agriculture & Markets",
+      "date_of_birth": null,
+      "phone": null,
+      "email": null,
+      "address": {
+        "street": "10b Airline Drive",
+        "city": "Albany",
+        "state": "NY",
+        "zip_code": "12235",
+        "country": null
+      }
+    }
+  ],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": null,
+    "policy_type": "commercial",
+    "insurer_name": null,
+    "effective_date": null,
+    "expiration_date": null,
+    "total_premium": null,
+    "coverages": [
+      {
+        "coverage_type": "commercial_general_liability",
+        "limit": "1000000",
+        "deductible": null,
+        "premium": null
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "ACORD 25 certificate of liability insurance example/instruction sheet. It requires the legal business name and address to match the agreement, Commercial General Liability coverage, policy in force for the duration of work, each occurrence limit of at least $1,000,000, NYS Agriculture & Markets listed as additional insured, and immediate notice of cancellation or material coverage change. Workers Compensation is not acceptable on an ACORD 25 form."
+}

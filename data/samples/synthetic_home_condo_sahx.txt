@@ -1,0 +1,26 @@
+[PAGE 1]
+GREYSTONE HOME INSURANCE — CONDOMINIUM (HO-6) DECLARATIONS
+
+Insurer: Greystone Home Insurance
+Policy Number: HO6-2026-542417
+Period: 06/06/2025 through 06/06/2026
+
+POLICYHOLDER
+  Name: Ian Cooper
+  DOB: 11/08/1993
+  Mailing Address: 78161 Calderon River Suite 931, Lake Jeremyport, CO 31013
+  Email: ian.cooper@example.com
+  Phone: (589) 555-4554
+
+UNIT
+  Unit Address: same as mailing
+  Year built: 1987  /  Floor: 1
+
+COVERAGES
+  Coverage A — Dwelling (Walls In)       Limit $103,000    Deductible $1,000   Premium $360.50
+  Coverage C — Personal Property         Limit $53,000    Deductible $500     Premium $222.60
+  Coverage E — Personal Liability        Limit $100,000                           Premium $84.00
+
+ANNUAL PREMIUM TOTAL: $667.10
+
+HOA Master Policy on file. Loss assessment coverage included up to $50,000.

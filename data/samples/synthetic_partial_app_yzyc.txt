@@ -1,0 +1,23 @@
+[PAGE 1]
+HEARTLAND MUTUAL INSURANCE — POLICY APPLICATION (Draft, page 1 of 4)
+
+Carrier: Heartland Mutual Insurance
+Policy Type: Auto
+
+APPLICANT INFORMATION
+  Full Name: ___________________________________
+  Date of Birth: ____ / ____ / ______
+  Address: ___________________________________
+           ___________________________________
+  Phone: __________________
+  Email: __________________
+
+POLICY DETAILS
+  Requested Effective Date: 05/06/2026
+  Policy Number (assigned by underwriter): ____________
+
+VEHICLE
+  Year: ____   Make: ____________   Model: ____________   VIN: ____________
+
+NOTES
+  Applicant requested follow-up to discuss liability minimums.

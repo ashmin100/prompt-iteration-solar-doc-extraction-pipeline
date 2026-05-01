@@ -1,0 +1,44 @@
+{
+  "form_type": "declaration_page",
+  "policy_holder": {
+    "full_name": "Mark Lynch",
+    "phone": "(446) 555-9295",
+    "email": "mark.lynch@example.com",
+    "address": {
+      "street": "2880 Burns Creek",
+      "city": "Natashaport",
+      "state": "IA",
+      "zip_code": "08093"
+    }
+  },
+  "additional_insureds": [],
+  "beneficiaries": [],
+  "policy": {
+    "policy_number": "HO4-2024-205907",
+    "policy_type": "home",
+    "insurer_name": "Pinecrest Renters Insurance",
+    "effective_date": "2026-04-30",
+    "expiration_date": "2027-04-30",
+    "total_premium": "304.00",
+    "coverages": [
+      {
+        "coverage_type": "personal_property",
+        "limit": "30000",
+        "deductible": "250",
+        "premium": "240.00"
+      },
+      {
+        "coverage_type": "personal_liability",
+        "limit": "300000",
+        "premium": "64.00"
+      },
+      {
+        "coverage_type": "medical_payments",
+        "limit": "1000",
+        "premium": "0"
+      }
+    ]
+  },
+  "claim": null,
+  "raw_notes": "HO-4 renters policy. Medical payments included."
+}

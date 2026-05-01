@@ -1,0 +1,23 @@
+[PAGE 1]
+CASCADIA MUTUAL INSURANCE — AUTO THEFT CLAIM REPORT
+
+Claim Number: CLM-2024-AUTO-70217
+Policy Number: AUTO-2026-230889
+Date of Loss: 2026-04-30
+Date Reported: 2026-05-01
+
+INSURED
+  Name: Thomas Ellis
+  Phone: (471) 555-2287
+  Email: thomas.ellis@example.com
+
+LOSS LOCATION
+  Vehicle parked overnight at 969 Cox Dam Suite 101, Lake Ernest, TX 55834
+
+DESCRIPTION OF LOSS
+  Vehicle reported missing the morning of 2026-04-30. No broken
+  glass observed at scene; signs of relay theft suspected. Police report
+  filed with local PD, report #PD-2024-82357.
+
+ESTIMATED REPLACEMENT VALUE: $27,403.00
+Deductible applied: $1,000
