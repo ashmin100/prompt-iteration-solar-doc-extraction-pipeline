@@ -210,8 +210,6 @@ solar-doc-extraction-pipeline/
 
 ## 🔖 Status
 
-**Day 2 of a one-week build.**
-
 - ✅ End-to-end pipeline
 - ✅ Three prompt versions (v1 / v2 / v3)
 - ✅ Type-aware eval harness
