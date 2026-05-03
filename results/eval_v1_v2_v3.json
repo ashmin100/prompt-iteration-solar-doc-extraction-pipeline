@@ -1,0 +1,122 @@
+{
+  "generated": "2026-05-03T19:52:01",
+  "dataset_size": 19,
+  "tier_counts": {
+    "blank": 4,
+    "synthetic": 15
+  },
+  "parser_mode": "text",
+  "runs": [
+    {
+      "prompt_version": "v1",
+      "backend": "ollama",
+      "model": "qwen3:14b",
+      "overall": {
+        "n_documents": 19,
+        "schema_validity_rate": 0.21052631578947367,
+        "field_accuracy": 0.4019933554817276,
+        "f1": 0.4879032258064516,
+        "hallucination_rate": 0.2923076923076923,
+        "omission_rate": 0.5415282392026578,
+        "latency_p50_ms": 37427.75224999059,
+        "latency_p95_ms": 77047.08716698224
+      },
+      "by_tier": {
+        "blank": {
+          "n_documents": 4,
+          "schema_validity_rate": 0.5,
+          "field_accuracy": 0.3333333333333333,
+          "f1": 0.47058823529411764,
+          "hallucination_rate": 0.0,
+          "omission_rate": 0.5833333333333334,
+          "latency_p50_ms": 36016.33858351852,
+          "latency_p95_ms": 51473.69679098483
+        },
+        "synthetic": {
+          "n_documents": 15,
+          "schema_validity_rate": 0.13333333333333333,
+          "field_accuracy": 0.40484429065743943,
+          "f1": 0.48851774530271397,
+          "hallucination_rate": 0.3,
+          "omission_rate": 0.5397923875432526,
+          "latency_p50_ms": 38096.6298749554,
+          "latency_p95_ms": 77047.08716698224
+        }
+      }
+    },
+    {
+      "prompt_version": "v2",
+      "backend": "ollama",
+      "model": "qwen3:14b",
+      "overall": {
+        "n_documents": 19,
+        "schema_validity_rate": 0.8421052631578947,
+        "field_accuracy": 0.5813953488372093,
+        "f1": 0.691699604743083,
+        "hallucination_rate": 0.06829268292682927,
+        "omission_rate": 0.3654485049833887,
+        "latency_p50_ms": 75047.87474998739,
+        "latency_p95_ms": 104203.65254097851
+      },
+      "by_tier": {
+        "blank": {
+          "n_documents": 4,
+          "schema_validity_rate": 1.0,
+          "field_accuracy": 0.4166666666666667,
+          "f1": 0.5,
+          "hallucination_rate": 0.0,
+          "omission_rate": 0.3333333333333333,
+          "latency_p50_ms": 53281.47858349257,
+          "latency_p95_ms": 65740.08308403427
+        },
+        "synthetic": {
+          "n_documents": 15,
+          "schema_validity_rate": 0.8,
+          "field_accuracy": 0.5882352941176471,
+          "f1": 0.6995884773662552,
+          "hallucination_rate": 0.07106598984771574,
+          "omission_rate": 0.36678200692041524,
+          "latency_p50_ms": 77715.560792014,
+          "latency_p95_ms": 104203.65254097851
+        }
+      }
+    },
+    {
+      "prompt_version": "v3",
+      "backend": "ollama",
+      "model": "qwen3:14b",
+      "overall": {
+        "n_documents": 19,
+        "schema_validity_rate": 0.5789473684210527,
+        "field_accuracy": 0.53156146179402,
+        "f1": 0.6666666666666667,
+        "hallucination_rate": 0.027932960893854747,
+        "omission_rate": 0.4219269102990033,
+        "latency_p50_ms": 74050.94849999296,
+        "latency_p95_ms": 125352.26208297536
+      },
+      "by_tier": {
+        "blank": {
+          "n_documents": 4,
+          "schema_validity_rate": 0.25,
+          "field_accuracy": 0.25,
+          "f1": 0.3157894736842105,
+          "hallucination_rate": 0.0,
+          "omission_rate": 0.4166666666666667,
+          "latency_p50_ms": 61101.53052100213,
+          "latency_p95_ms": 79492.36054194625
+        },
+        "synthetic": {
+          "n_documents": 15,
+          "schema_validity_rate": 0.6666666666666666,
+          "field_accuracy": 0.5432525951557093,
+          "f1": 0.6811279826464208,
+          "hallucination_rate": 0.029069767441860465,
+          "omission_rate": 0.42214532871972316,
+          "latency_p50_ms": 75923.903833027,
+          "latency_p95_ms": 125352.26208297536
+        }
+      }
+    }
+  ]
+}
