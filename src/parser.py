@@ -219,8 +219,13 @@ def _make_vlm_client():
 
 # --------------------------------------------------------------------------- #
 def truncate_for_context(text: str, max_chars: int = 12000) -> str:
-    """Naive truncation to fit small open-source model context windows."""
+    """Truncate to fit context windows, cutting at a line or word boundary."""
     if len(text) <= max_chars:
         return text
-    head = text[: max_chars - 200]
-    return head + "\n\n[...TRUNCATED FOR CONTEXT WINDOW...]"
+    cut = max_chars - 200
+    boundary = text.rfind("\n", 0, cut)
+    if boundary == -1:
+        boundary = text.rfind(" ", 0, cut)
+    if boundary == -1:
+        boundary = cut
+    return text[:boundary] + "\n\n[...TRUNCATED FOR CONTEXT WINDOW...]"

@@ -15,6 +15,23 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, field_validator
 
 
+def _parse_money(v) -> Optional[Decimal]:
+    """Normalize a raw money value (str / int / float / Decimal) to Decimal."""
+    if v is None or v == "":
+        return None
+    if isinstance(v, (int, float, Decimal)):
+        return Decimal(str(v))
+    if isinstance(v, str):
+        cleaned = re.sub(r"[^\d.\-]", "", v)
+        if not cleaned:
+            return None
+        try:
+            return Decimal(cleaned)
+        except InvalidOperation:
+            return None
+    return None
+
+
 # --------------------------------------------------------------------------- #
 #  Enums                                                                      #
 # --------------------------------------------------------------------------- #
@@ -79,19 +96,7 @@ class Coverage(BaseModel):
     @field_validator("limit", "deductible", "premium", mode="before")
     @classmethod
     def _money_to_decimal(cls, v):
-        if v is None or v == "":
-            return None
-        if isinstance(v, (int, float, Decimal)):
-            return Decimal(str(v))
-        if isinstance(v, str):
-            cleaned = re.sub(r"[^\d.\-]", "", v)
-            if not cleaned:
-                return None
-            try:
-                return Decimal(cleaned)
-            except InvalidOperation:
-                return None
-        return None
+        return _parse_money(v)
 
 
 class Policy(BaseModel):
@@ -106,7 +111,7 @@ class Policy(BaseModel):
     @field_validator("total_premium", mode="before")
     @classmethod
     def _money(cls, v):
-        return Coverage._money_to_decimal(v)
+        return _parse_money(v)
 
 
 class ClaimDetails(BaseModel):
@@ -119,7 +124,7 @@ class ClaimDetails(BaseModel):
     @field_validator("estimated_amount", mode="before")
     @classmethod
     def _money(cls, v):
-        return Coverage._money_to_decimal(v)
+        return _parse_money(v)
 
 
 # --------------------------------------------------------------------------- #

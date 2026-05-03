@@ -1,7 +1,8 @@
-"""Render a HarnessReport as a markdown comparison report."""
+"""Render a HarnessReport as a markdown comparison report and JSON snapshot."""
 
 from __future__ import annotations
 
+import json
 from datetime import datetime
 from pathlib import Path
 
@@ -109,7 +110,41 @@ def render(report: HarnessReport) -> str:
     return "\n".join(lines)
 
 
+def _report_to_dict(report: HarnessReport) -> dict:
+    """Serialize HarnessReport to a plain dict for JSON output."""
+    def _agg(m: AggregateMetrics) -> dict:
+        return {
+            "n_documents": m.n_documents,
+            "schema_validity_rate": m.schema_validity_rate,
+            "field_accuracy": m.field_accuracy,
+            "f1": m.f1,
+            "hallucination_rate": m.hallucination_rate,
+            "omission_rate": m.omission_rate,
+            "latency_p50_ms": m.latency_p50_ms,
+            "latency_p95_ms": m.latency_p95_ms,
+        }
+
+    return {
+        "generated": datetime.now().isoformat(timespec="seconds"),
+        "dataset_size": report.dataset_size,
+        "tier_counts": report.tier_counts,
+        "parser_mode": report.parser_mode,
+        "runs": [
+            {
+                "prompt_version": r.prompt_version,
+                "backend": r.backend,
+                "model": r.model,
+                "overall": _agg(r.overall),
+                "by_tier": {tier: _agg(m) for tier, m in r.by_tier.items()},
+            }
+            for r in report.runs
+        ],
+    }
+
+
 def write_report(report: HarnessReport, out_path: Path) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(render(report), encoding="utf-8")
+    json_path = out_path.with_suffix(".json")
+    json_path.write_text(json.dumps(_report_to_dict(report), indent=2), encoding="utf-8")
     return out_path
