@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Optional
@@ -16,6 +17,8 @@ from src.eval.metrics import (
     aggregate,
     score_document,
 )
+
+log = logging.getLogger("solar.eval")
 
 
 # --------------------------------------------------------------------------- #
@@ -145,14 +148,48 @@ def run_evaluation(
         tier_counts[item.tier] = tier_counts.get(item.tier, 0) + 1
 
     llm_client = llm or LLMClient()
+    versions_list = list(versions)
+    n_docs = len(dataset)
+
+    log.info(
+        "starting evaluation | model=%s backend=%s mode=%s docs=%d versions=%s",
+        llm_client.model, llm_client.backend, parser_mode, n_docs,
+        ",".join(versions_list),
+    )
+
     runs: list[HarnessRun] = []
 
-    for version in versions:
+    for version in versions_list:
         extractor = Extractor(llm=llm_client, prompt_version=version)
         per_doc: list[DocumentMetrics] = []
 
-        for item in dataset:
+        log.info("[%s] ── begin (%d docs)", version, n_docs)
+
+        for idx, item in enumerate(dataset, start=1):
+            prefix = f"[{version} {idx:>2}/{n_docs}] {item.document_id:<40}"
+            log.info("%s starting ...", prefix)
+
             res = extractor.extract_from_text(item.text, document_id=item.document_id)
+
+            if res.json_parse_error:
+                log.warning(
+                    "%s FAIL  json_parse_error: %s  (%.0fms)",
+                    prefix, res.json_parse_error, res.llm_response.latency_ms,
+                )
+            elif res.validation_errors:
+                log.warning(
+                    "%s FAIL  validation_errors: %s  (%.0fms)",
+                    prefix, "; ".join(res.validation_errors[:2]),
+                    res.llm_response.latency_ms,
+                )
+            else:
+                dm = res.validated.model_dump(mode="json") if res.validated else {}
+                filled = sum(1 for v in dm.values() if v is not None)
+                log.info(
+                    "%s OK    schema_valid=%-5s  fields_filled=%d  (%.0fms)",
+                    prefix, res.schema_valid, filled, res.llm_response.latency_ms,
+                )
+
             pred = (
                 res.validated.model_dump(mode="json")
                 if res.validated is not None
@@ -180,6 +217,16 @@ def run_evaluation(
             if tier_docs:
                 by_tier[tier] = aggregate(tier_docs)
 
+        log.info(
+            "[%s] ── done  schema_valid=%.0f%%  F1=%.3f  halluc=%.1f%%  omit=%.1f%%  p50=%.0fms",
+            version,
+            overall.schema_validity_rate * 100,
+            overall.f1,
+            overall.hallucination_rate * 100,
+            overall.omission_rate * 100,
+            overall.latency_p50_ms,
+        )
+
         runs.append(
             HarnessRun(
                 prompt_version=version,
@@ -190,6 +237,7 @@ def run_evaluation(
             )
         )
 
+    log.info("evaluation complete | %d versions × %d docs", len(versions_list), n_docs)
     return HarnessReport(
         runs=runs,
         dataset_size=len(dataset),

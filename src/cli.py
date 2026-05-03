@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import sys
 from pathlib import Path
 
@@ -18,8 +19,18 @@ from src.eval.harness import run_evaluation
 from src.eval.report import write_report
 
 
+def _setup_logging() -> None:
+    logging.basicConfig(
+        stream=sys.stderr,
+        level=logging.INFO,
+        format="%(asctime)s  %(levelname)-7s  %(message)s",
+        datefmt="%H:%M:%S",
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     load_dotenv()
+    _setup_logging()
 
     parser = argparse.ArgumentParser(prog="solar-doc-extraction-pipeline")
     sub = parser.add_subparsers(dest="cmd", required=True)
